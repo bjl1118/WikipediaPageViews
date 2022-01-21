@@ -1,8 +1,12 @@
 import { useEffect, useState } from 'react';
+import moment from 'moment';
+import DatePicker from 'react-datepicker';
+import 'react-datepicker/dist/react-datepicker.css';
 import './App.css';
 
 function App() {
   const [articles, setArticles] = useState([])
+  const [date, setDate] = useState(moment().subtract(10, 'days').toDate());
 
   /**
    * Creates the URL to send requests to using year, month, and day as params
@@ -16,8 +20,11 @@ function App() {
 
   useEffect(() => {
     const fetchData = async () => {
+      const year = moment(date).format('yyyy')
+      const month = moment(date).format('MM')
+      const day = moment(date).format('DD')
       const response = await fetch(
-        url('2022', '01', '10'),
+        url(year, month, day),
       );
 
       const body = await response.json();
@@ -27,10 +34,13 @@ function App() {
     };
 
     fetchData();
-  }, [])
+  }, [date])
 
   return (
     <div className="App">
+      <DatePicker
+        selected={date}
+        onChange={(date) => setDate(date)} />
       <ul>
         {articles.map(article => (
           <li key={article.article}>
