@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import moment from 'moment';
+import Article from './components/Article';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import './App.css';
@@ -45,7 +46,7 @@ function App() {
 
   return (
     <div className="App">
-      <div class="Content">
+      <div className="Content">
         <DatePicker
           selected={date}
           onChange={(date) => setDate(date)}
@@ -59,9 +60,13 @@ function App() {
                   <div>Something went wrong ...</div> :
                   <ul>
                     {articles.map(article => (
-                      <li key={article.article}>
-                        <a target="_blank" rel="noreferrer" href={`https://en.wikipedia.org/wiki/${article.article}`}>{article.article}</a>
-                      </li>
+                      <Article
+                        key={`${date}${article.article}`}
+                        article={article.article}
+                        rank={article.rank}
+                        views={article.views}
+                        percent={article.percent}
+                      />
                     ))}
                   </ul>
               }
