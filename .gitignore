@@ -23,6 +23,7 @@ coverage
 *.lcov
 
 .vscode
+build/
 
 # nyc test coverage
 .nyc_output
