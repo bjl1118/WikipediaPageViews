@@ -1,0 +1,20 @@
+.Article {
+    opacity: 0.8;
+    cursor: pointer;
+    padding: 0.5rem 0;
+    transition: opacity 0.2s ease-in-out;
+    text-align: center;
+}
+
+.Article:first-child {
+    padding-top: 0;
+}
+
+.Article:hover {
+    opacity: 1;
+    transition: opacity 0.2s ease-in-out;
+}
+
+.Article a {
+    color: white;
+}

@@ -1,0 +1,24 @@
+.App {
+    min-height: 100vh;
+    background: #2D3147;
+}
+
+.react-datepicker-wrapper,
+.react-datepicker__input-container,
+.react-datepicker__input-container input {
+    display: block;
+    width: 100%;
+}
+
+.react-datepicker__input-container input {
+    padding: 0.5rem;
+    outline-color: #1de9b6;
+    border-radius: 4px;
+}
+
+.Content {
+    max-width: 50%;
+    margin: 1rem auto;
+    padding: 0.5rem;
+    border-radius: 4px;
+}

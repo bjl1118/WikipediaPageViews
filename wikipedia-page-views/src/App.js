@@ -58,7 +58,7 @@ function App() {
               {
                 isError ?
                   <div>Something went wrong ...</div> :
-                  <ul>
+                  <div>
                     {articles.map(article => (
                       <Article
                         key={`${date}${article.article}`}
@@ -68,7 +68,7 @@ function App() {
                         percent={article.percent}
                       />
                     ))}
-                  </ul>
+                  </div>
               }
             </div>
         }
