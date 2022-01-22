@@ -7,6 +7,8 @@ import './App.css';
 function App() {
   const [articles, setArticles] = useState([])
   const [date, setDate] = useState(moment().subtract(10, 'days').toDate());
+  const [isLoading, setIsLoading] = useState(false);
+  const [isError, setIsError] = useState(false);
 
   /**
    * Creates the URL to send requests to using year, month, and day as params
@@ -20,17 +22,22 @@ function App() {
 
   useEffect(() => {
     const fetchData = async () => {
+      setIsError(false);
+      setIsLoading(true);
       const year = moment(date).format('yyyy')
       const month = moment(date).format('MM')
       const day = moment(date).format('DD')
-      const response = await fetch(
-        url(year, month, day),
-      );
+      try {
+        const response = await fetch(
+          url(year, month, day),
+        );
+        const body = await response.json();
+        setArticles(body.items[0].articles)
+      } catch {
+        setIsError(true);
+      }
 
-      const body = await response.json();
-      console.log(body);
-
-      setArticles(body.items[0].articles)
+      setIsLoading(false)
     };
 
     fetchData();
@@ -38,17 +45,31 @@ function App() {
 
   return (
     <div className="App">
-      <DatePicker
-        selected={date}
-        onChange={(date) => setDate(date)} />
-      <ul>
-        {articles.map(article => (
-          <li key={article.article}>
-            <a target="_blank" rel="noreferrer" href={`https://en.wikipedia.org/wiki/${article.article}`}>{article.article}</a>
-          </li>
-        ))}
-      </ul>
+      <div class="Content">
+        <DatePicker
+          selected={date}
+          onChange={(date) => setDate(date)}
+        />
+        {
+          isLoading ?
+            <div>Loading...</div> :
+            <div>
+              {
+                isError ?
+                  <div>Something went wrong ...</div> :
+                  <ul>
+                    {articles.map(article => (
+                      <li key={article.article}>
+                        <a target="_blank" rel="noreferrer" href={`https://en.wikipedia.org/wiki/${article.article}`}>{article.article}</a>
+                      </li>
+                    ))}
+                  </ul>
+              }
+            </div>
+        }
+      </div>
     </div>
+
   );
 }
 
