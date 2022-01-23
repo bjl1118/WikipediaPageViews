@@ -13,6 +13,7 @@ const Article = (props) => {
   const barWidth = Math.ceil(pct()(props.views));
 
   useEffect(() => {
+    // Use separate colors to make the top 3 results stand out
     switch (props.index) {
       case 0:
         setColor('#00b0ff');
