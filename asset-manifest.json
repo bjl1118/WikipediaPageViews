@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/WikipediaPageViews/static/css/main.1bb1febe.css",
+    "main.js": "/WikipediaPageViews/static/js/main.3cbcdc27.js",
+    "index.html": "/WikipediaPageViews/index.html",
+    "main.1bb1febe.css.map": "/WikipediaPageViews/static/css/main.1bb1febe.css.map",
+    "main.3cbcdc27.js.map": "/WikipediaPageViews/static/js/main.3cbcdc27.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.1bb1febe.css",
+    "static/js/main.3cbcdc27.js"
+  ]
+}
