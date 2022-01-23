@@ -21,8 +21,11 @@
     border-radius: 4px;
 }
 
-.ArticlesList {
+.Results {
     padding: 1rem 0;
+}
+
+.ArticlesList {
     display: table;
 }
 
@@ -40,4 +43,4 @@
     .Content {
         width: 90%;
     }
-  }
+}

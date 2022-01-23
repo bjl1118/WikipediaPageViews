@@ -68,31 +68,32 @@ function App() {
             onChange={(date) => setDate(date)}
           />
         </div>
-        {
-          isLoading ?
-            <div>Loading...</div> :
-            <div>
-              {
-                isError ?
-                  <div>Something went wrong ...</div> :
-                  <div className="ArticlesList">
-                    {articles.map(article => (
-                      <Article
-                        key={`${date}${article.article}`}
-                        article={article.article}
-                        rank={article.rank}
-                        views={article.views}
-                        // Pass in the top ranking views so we can calculate the bar width
-                        max={articles[0].views}
-                      />
-                    ))}
-                  </div>
-              }
-            </div>
-        }
+        <div className="Results">
+          {
+            isLoading ?
+              <div>Loading...</div> :
+              <div>
+                {
+                  isError ?
+                    <div>Something went wrong ...</div> :
+                    <div className="ArticlesList">
+                      {articles.map(article => (
+                        <Article
+                          key={`${date}${article.article}`}
+                          article={article.article}
+                          rank={article.rank}
+                          views={article.views}
+                          // Pass in the top ranking views so we can calculate the bar width
+                          max={articles[0].views}
+                        />
+                      ))}
+                    </div>
+                }
+              </div>
+          }
+        </div>
       </div>
     </div>
-
   );
 }
 
