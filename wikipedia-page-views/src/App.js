@@ -21,6 +21,8 @@ function App() {
    */
   const url = (year, month, day) => `https://wikimedia.org/api/rest_v1/metrics/pageviews/top/en.wikipedia/all-access/${year}/${month}/${day}`
 
+  const hasArticles = (body) => body.items && body.items[0] && body.items[0].articles;
+
   useEffect(() => {
     const fetchData = async () => {
       setIsError(false);
@@ -33,11 +35,20 @@ function App() {
           url(year, month, day),
         );
         const body = await response.json();
-        setArticles(body.items[0].articles)
+        if (hasArticles(body)) {
+          // Filter out "Main_Page" and "Special:Search" from results. This is because they
+          // are generally viewed much higher than other pages, and don't tell a particularly 
+          // interesting story
+          const articles = body.items[0].articles.filter(article => {
+            return article.article !== 'Main_Page' && article.article !== 'Special:Search'
+          })
+          setArticles(articles)
+        } else {
+          setIsError(true);
+        }
       } catch {
         setIsError(true);
       }
-
       setIsLoading(false)
     };
 
