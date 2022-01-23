@@ -4,15 +4,38 @@
     padding: 0.5rem 0;
     transition: opacity 0.2s ease-in-out;
     text-align: center;
-}
-
-.Article:first-child {
-    padding-top: 0;
+    display: table-row;
 }
 
 .Article:hover {
     opacity: 1;
     transition: opacity 0.2s ease-in-out;
+}
+
+.Article > div {
+    padding: 0.5rem;
+}
+
+.Name {
+    display: table-cell;
+    vertical-align: middle;
+    word-wrap: break-word;
+    text-align: right;
+}
+
+.BarContainer {
+    display: table-cell;
+    vertical-align: middle;
+    width: 100%;
+    text-align: left;
+    color: #1de9b6;
+    font-size: 0.75rem;
+}
+
+.Bar {
+    height: 5px;
+    background-color: #1de9b6;
+    margin-bottom: 0.25rem;
 }
 
 .Article a {

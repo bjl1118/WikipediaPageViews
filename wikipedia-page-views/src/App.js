@@ -58,14 +58,15 @@ function App() {
               {
                 isError ?
                   <div>Something went wrong ...</div> :
-                  <div>
+                  <div className="ArticlesList">
                     {articles.map(article => (
                       <Article
                         key={`${date}${article.article}`}
                         article={article.article}
                         rank={article.rank}
                         views={article.views}
-                        percent={article.percent}
+                        // Pass in the top ranking views so we can calculate the bar width
+                        max={articles[0].views}
                       />
                     ))}
                   </div>
