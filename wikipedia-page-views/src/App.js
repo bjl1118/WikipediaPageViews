@@ -58,10 +58,16 @@ function App() {
   return (
     <div className="App">
       <div className="Content">
-        <DatePicker
-          selected={date}
-          onChange={(date) => setDate(date)}
-        />
+        <div className="DatePickerContainer">
+          <span className='DatePickerLabel'>
+            What were the most viewed Wikipedia Pages on...
+          </span>
+          <DatePicker
+            selected={date}
+            showPopperArrow={false}
+            onChange={(date) => setDate(date)}
+          />
+        </div>
         {
           isLoading ?
             <div>Loading...</div> :

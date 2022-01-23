@@ -3,17 +3,14 @@
     background: #1e202f;
 }
 
-.react-datepicker-wrapper,
-.react-datepicker__input-container,
-.react-datepicker__input-container input {
-    display: block;
-    width: 100%;
-}
-
 .react-datepicker__input-container input {
     padding: 0.5rem;
-    outline-color: #1de9b6;
     border-radius: 4px;
+    margin-top: 0.5rem;
+    display: inline-block;
+    outline: none;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .Content {
@@ -27,6 +24,16 @@
 .ArticlesList {
     padding: 1rem 0;
     display: table;
+}
+
+.DatePickerContainer {
+    background: #464a6d;
+    padding: 1rem;
+    border-radius: 4px;
+}
+
+.DatePickerLabel {
+    font-size: 1.5rem;
 }
 
 @media only screen and (max-width: 900px) {
