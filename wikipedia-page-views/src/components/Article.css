@@ -12,7 +12,7 @@
     transition: opacity 0.2s ease-in-out;
 }
 
-.Article > div {
+.Article>div {
     padding: 0.5rem;
 }
 
@@ -28,14 +28,25 @@
     vertical-align: middle;
     width: 100%;
     text-align: left;
-    color: #1de9b6;
     font-size: 0.75rem;
 }
 
 .Bar {
     height: 5px;
-    background-color: #1de9b6;
     margin-bottom: 0.25rem;
+}
+
+.Badge {
+    border-radius: 50%;
+    padding: 0.25rem;
+    border-width: 1px;
+    border-style: solid;
+    width: 1.5rem;
+    height: 1.5rem;
+    display: inline-block;
+    line-height: 1.5rem;
+    text-align: center;
+    margin-right: 0.25rem;
 }
 
 .Article a {

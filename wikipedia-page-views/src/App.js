@@ -77,11 +77,12 @@ function App() {
                   isError ?
                     <div>Something went wrong ...</div> :
                     <div className="ArticlesList">
-                      {articles.map(article => (
+                      {articles.map((article, index) => (
                         <Article
                           key={`${date}${article.article}`}
                           article={article.article}
                           rank={article.rank}
+                          index={index}
                           views={article.views}
                           // Pass in the top ranking views so we can calculate the bar width
                           max={articles[0].views}
