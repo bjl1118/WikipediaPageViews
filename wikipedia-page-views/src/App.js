@@ -59,11 +59,12 @@ function App() {
     <div className="App">
       <div className="Content">
         <div className="DatePickerContainer">
-          <span className='DatePickerLabel'>
+          <label for="date" className='DatePickerLabel'>
             What were the most viewed Wikipedia Pages on...
-          </span>
+          </label>
           <DatePicker
             selected={date}
+            id="date"
             showPopperArrow={false}
             onChange={(date) => setDate(date)}
           />
